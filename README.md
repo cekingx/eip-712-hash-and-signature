@@ -1,13 +1,6 @@
-# Sample Hardhat Project
+# EIP712 Hash and Signature
+Sample project to show how to use EIP712 hash and signature in solidity and javascript using ethers v6 library
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
-```
+## Notes
+- change `enum` to `uint8` in typehash
+- for a nested struct typehash, append the child struct typehash after the parent
