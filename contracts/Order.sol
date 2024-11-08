@@ -35,6 +35,12 @@ contract Order is EIP712 {
     return product.hashProduct();
   }
 
+  function verifyProduct(OrderLib.Product memory product, bytes memory signature) public view returns (address) {
+    bytes32 productHash = hashProduct(product);
+    bytes32 digest = _hashTypedDataV4(productHash);
+    return digest.recover(signature);
+  }
+
   function orderTypeHash() public pure returns (bytes32) {
     return OrderLib.orderTypeHash();
   }
