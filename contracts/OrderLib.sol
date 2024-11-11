@@ -56,12 +56,11 @@ library OrderLib {
   }
 
   function orderTypeHash() internal pure returns (bytes32) {
-    // return keccak256(bytes(
-    //   "Order(User buyer,User seller,uint8 orderType,Product product,uint256 quantity)"
-    //   "Product(string name,uint256 price)"
-    //   "User(uint256 id,string name,string email)"
-    // ));
-    return keccak256("Order(User buyer,User seller,uint8 orderType,Product product,uint256 quantity)Product(string name,uint256 price)User(uint256 id,string name,string email)");
+    return keccak256(bytes(
+      "Order(User buyer,User seller,uint8 orderType,Product product,uint256 quantity)"
+      "Product(string name,uint256 price)"
+      "User(uint256 id,string name,string email)"
+    ));
   }
 
   function hashOrder(Order memory order) internal pure returns (bytes32) {

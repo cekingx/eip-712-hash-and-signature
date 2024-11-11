@@ -48,4 +48,10 @@ contract Order is EIP712 {
   function hashOrder(OrderLib.Order memory order) public pure returns (bytes32) {
     return order.hashOrder();
   }
+
+  function verifyOrder(OrderLib.Order memory order, bytes memory signature) public view returns (address) {
+    bytes32 orderHash = hashOrder(order);
+    bytes32 digest = _hashTypedDataV4(orderHash);
+    return digest.recover(signature);
+  }
 }
