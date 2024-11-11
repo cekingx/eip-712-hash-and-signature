@@ -8,6 +8,8 @@ Sample project to show how to use EIP712 hash and signature in solidity and java
 ## Type Serialization
 [EIP712](https://eips.ethereum.org/EIPS/eip-712) have defined how to serialize type
 
+### Simple Struct
+
 ```solidity
 struct Product {
   string name;
@@ -16,6 +18,7 @@ struct Product {
 ```
 for this struct, the type serialization should be `Product(string name,uint256 price)`
 
+### Nested Struct
 ```solidity
 struct User {
   uint256 id;
